@@ -17,6 +17,11 @@ def delete_all():
     sql = "DELETE  FROM books"
     run_sql(sql)
 
+def delete_book(book):
+    sql = "DELETE  FROM books WHERE id = %s"
+    values = [book.id]
+    run_sql(sql, values)
+
 def select_all():
     books = []
 
@@ -27,3 +32,8 @@ def select_all():
         book = Book(row["title"], row["publisher_id"], row["author"], row["genre"], row["stock"], row["cost_price"], row["sale_price"], row["markup"], row["blurb"])
         books.append(book)
     return books
+
+def sell_copy(book):
+        sql = "UPDATE books SET stock = stock - 1 WHERE id = %s"
+        book = [book.id]
+        run_sql(sql, book)

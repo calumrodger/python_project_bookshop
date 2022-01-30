@@ -17,6 +17,11 @@ def delete_all():
     sql = "DELETE  FROM publishers"
     run_sql(sql)
 
+def delete_publisher(publisher):
+    sql = "DELETE  FROM publishers WHERE id = %s"
+    values = [publisher.id]
+    run_sql(sql, values)
+
 def select_all():
     publishers = []
 

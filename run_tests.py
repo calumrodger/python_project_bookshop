@@ -1,6 +1,6 @@
 import unittest
  
-from tests.book_test import TestBook
+from tests.book_tests import TestBook
  
  
 if __name__ == '__main__':
