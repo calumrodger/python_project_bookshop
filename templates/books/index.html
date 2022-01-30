@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+{% for book in all_books %} 
+<div class="book">
+    <div class="content">
+        <br>
+      {{book.title}}<br>
+      {{book.publisher}}<br>
+      {{book.blurb}}<br>
+        <br>
+    </div>
+</div>
+      
+{% endfor %} 
+
+{% endblock %}

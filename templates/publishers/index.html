@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+{% for publisher in all_publishers %} 
+<div class="publisher">
+    <div class="content">
+        <br>
+      {{publisher.name}}<br>
+      {{publisher.location}}<br>
+      {{publisher.id}}<br>
+        <br>
+    </div>
+</div>
+      
+{% endfor %} 
+
+{% endblock %}
