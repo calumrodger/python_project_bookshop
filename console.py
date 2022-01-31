@@ -17,7 +17,7 @@ publisher5 = Publisher("Wild Hawthorn Press", "Edinburgh", False)
 book1 = Book('A Little Larger than the Entire Universe', publisher1, 'Fernando Pessoa', 'poetry', 3, 7.00, 10.99, 'The definitive English translation of the iconic Portugeuse poet.')
 book2 = Book('One Hundred Years of Solitude', publisher1, 'Gabriel Garcia Marquez', 'magical realism', 5, 6.00, 10.99, 'One of the greatest novels of the twentieth century - a timeless classic.')
 book3 = Book('PORTS', publisher4, 'Calum Rodger', 'poetry', 2, 3.00, 5.00, 'Classic twentieth century poems reimagined as videogame instructions.')
-book4 = Book('Rapel', publisher5, 'Ian Hamilton Finlay', 'concrete poetry', 1, 50.00, 150.00, 'Scottish poet''s first concrete poetry collection - ultra rare!')
+book4 = Book('Rapel', publisher5, 'Ian Hamilton Finlay', 'concrete poetry', 1, 50.00, 150.00, "Scottish poet's first concrete poetry collection - ultra rare!")
 
 publisher_repository.save(publisher1)
 publisher_repository.save(publisher2)

@@ -44,6 +44,18 @@ def select(id):
         book = Book(result["title"], publisher, result["author"], result["genre"], result["stock"], result["cost_price"], result["sale_price"], result["blurb"], result["id"])
     return book
 
+# def select_by_author():
+#     books = []
+#     author = request.form["author"]
+#     sql = "SELECT * FROM books WHERE author = %s"
+#     value = author
+#     results = run_sql(sql, value)
+#     if results is not None:
+#         for row in results:
+#             book = Book(row["title"], row["publisher_id"], row["author"], row["genre"], row["stock"], row["cost_price"], row["sale_price"], row["blurb"], row["id"])
+#             books.append(book)
+#         return books
+
 def sell_copy(id):
     sql = "UPDATE books SET stock = stock - 1 WHERE id = %s"
     book = [id]

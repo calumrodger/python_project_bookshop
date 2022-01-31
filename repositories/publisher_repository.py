@@ -60,6 +60,15 @@ def update(publisher):
 #         sql = "UPDATE publishers SET active = False WHERE id = %s"
 #     else:
 #         sql = "UPDATE publishers SET active = True WHERE id = %s"
-#     publisher = [publisher.active]
-#     pdb.set_trace()
-#     run_sql(sql, publisher)
+#     values = [publisher.name, publisher.location, publisher.active, publisher.id]
+#     run_sql(sql, values)
+
+def switch_active_status_true(id):
+    sql = "UPDATE publishers SET active = True WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+def switch_active_status_false(id):
+    sql = "UPDATE publishers SET active = False WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)

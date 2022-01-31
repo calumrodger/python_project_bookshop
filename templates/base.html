@@ -16,6 +16,20 @@
         <li><a href="/publishers">Show all publishers</a></li>
         <li><a href="/books/new">Add new book</a></li>
         <li><a href="/publishers/new">Add new publisher</a></li>
+        
+        <!-- <div>
+          <form action="books/bypublisher" method="post">
+          <label for="publisher">List by publisher:</label>
+          <select id="publisher" name="publisher_id">
+            {% for publisher in all_publishers %}
+              <option value="{{ publisher.id }}">
+                {{ publisher.name }}
+              </option>
+            {% endfor %}
+          </select>
+          <button type="submit", action="/books/index.html", method="post">Go</button>
+        </form>
+        </div> -->
       </ul>
     </nav>
   </header>

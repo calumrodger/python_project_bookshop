@@ -5,9 +5,8 @@
 {% for book in all_books %} 
 <div class="book">
     <div class="content">
-        <p>
       <b>Title:</b> {{book.title}}<br>
-      <b>Publisher Index:</b> {{book.publisher}}<br>
+      <b>Publisher Index:</b> {{book.publisher.id}}<br>
       <b>Author:</b> {{book.author}}<br>
       <b>Genre:</b> {{book.genre}}<br>
       {% if book.stock == 0 %}
@@ -30,6 +29,7 @@
         <br>
     </div>
 </div>
+
       
 {% endfor %} 
 
