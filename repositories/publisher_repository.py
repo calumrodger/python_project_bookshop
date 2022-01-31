@@ -40,10 +40,15 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        publisher = Publisher(result['name'], result['location'], result['active'], result['id'])
+        publisher = Publisher(result["name"], result["location"], result["active"], result["id"])
     return publisher
 
 def switch_active(publisher):
     sql = "UPDATE publishers SET (active) = (%s) WHERE id = %s"
     values = [publisher.active]
+    run_sql(sql, values)
+
+def update(publisher):
+    sql = "UPDATE publishers SET (name, location, active) = (%s, %s, %s) WHERE id = %s"
+    values = [publisher.name, publisher.location, publisher.active, publisher.id]
     run_sql(sql, values)

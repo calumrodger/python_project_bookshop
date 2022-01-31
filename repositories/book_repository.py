@@ -51,5 +51,5 @@ def sell_copy(id):
 
 def update(book):
     sql = "UPDATE books SET (title, publisher_id, author, genre, stock, cost_price, sale_price, blurb) = (%s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [book.title, book.publisher_id, book.author, book.genre, book.stock, book.cost_price, book.sale_price, book.blurb, book.id]
+    values = [book.title, book.publisher.id, book.author, book.genre, book.stock, book.cost_price, book.sale_price, book.blurb, book.id]
     run_sql(sql, values)

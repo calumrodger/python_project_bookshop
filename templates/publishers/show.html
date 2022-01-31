@@ -1,0 +1,35 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+<div class="publisher">
+    <div class="content">
+        <p>
+      <b>Name:</b> {{publisher.name}}<br>
+      <b>Location:</b> {{publisher.location}}<br>
+      <b>Active?:</b> {{publisher.active}}<br>
+      <b>Index:</b> {{publisher.id}}<br>
+    </div>
+</div>
+
+<form action="/publishers/{{publisher.id}}" method="post">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="{{publisher.name}}" required autofocus>
+  </div>
+  <div>
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" value="{{publisher.location}}" required>
+  </div>
+  <div>
+    <label for="active">Active?:</label>
+    <input type="text" id="active" name="active" value="{{publisher.active}}" required>
+  </div>
+
+
+
+  <button type="submit">Update Publisher</button>
+
+</form>
+
+{% endblock %}
