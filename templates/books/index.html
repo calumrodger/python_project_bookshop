@@ -7,17 +7,16 @@
     <div class="content">
         <p>
       <b>Title:</b> {{book.title}}<br>
-      <b>Publisher:</b> {{book.publisher}}<br>
+      <b>Publisher:</b> {{book.publisher.name}}<br>
       <b>Author:</b> {{book.author}}<br>
       <b>Genre:</b> {{book.genre}}<br>
       <b>Stock level:</b> {{book.stock}}<br>
       <b>Cost price:</b> {{book.cost_price}}<br>
       <b>Sale price:</b> {{book.sale_price}}<br>
       <b>Blurb:</b> {{book.blurb}}<br>
-      <a href="/books/{{book.id}}/edit" method="POST">Edit entry</a>
+      <a href="/books/{{book.id}}" method="GET">Edit entry</a>
       <a href="/books/{{book.id}}/sell" method="POST">Sell copy</a>
-      <a href="/books/{{book.id}}/delete" method="POST">Remove book from inventory</a>
-        </p>
+      <a href="/books/{{book.id}}/delete" method="POST">Remove book from inventory</a><br>
         <br>
     </div>
 </div>

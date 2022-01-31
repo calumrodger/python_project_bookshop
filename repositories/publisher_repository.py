@@ -33,6 +33,16 @@ def select_all():
         publishers.append(publisher)
     return publishers
 
+def select(id):
+    publisher = None
+    sql = "SELECT * FROM publishers WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        publisher = Publisher(result['name'], result['location'], result['active'], result['id'])
+    return publisher
+
 def switch_active(publisher):
     sql = "UPDATE publishers SET (active) = (%s) WHERE id = %s"
     values = [publisher.active]

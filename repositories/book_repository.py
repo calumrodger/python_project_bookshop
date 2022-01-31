@@ -33,7 +33,23 @@ def select_all():
         books.append(book)
     return books
 
+def select(id):
+    book = None
+    sql = "SELECT * FROM books WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        publisher = publisher_repository.select(result["publisher_id"])
+        book = Book(result["title"], publisher, result["author"], result["genre"], result["stock"], result["cost_price"], result["sale_price"], result["blurb"], result["id"])
+    return book
+
 def sell_copy(id):
         sql = "UPDATE books SET stock = stock - 1 WHERE id = %s"
         book = [id]
         run_sql(sql, book)
+
+def update(book):
+    sql = "UPDATE books SET (title, publisher_id, author, genre, stock, cost_price, sale_price, blurb) = (%s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [book.title, book.publisher_id, book.author, book.genre, book.stock, book.cost_price, book.sale_price, book.blurb, book.id]
+    run_sql(sql, values)
