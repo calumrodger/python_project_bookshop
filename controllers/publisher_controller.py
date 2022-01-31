@@ -10,3 +10,8 @@ publishers_blueprint = Blueprint("/publishers", __name__)
 def list_publishers():
     publishers = publisher_repository.select_all()
     return render_template("publishers/index.html", all_publishers = publishers)
+
+@publishers_blueprint.route("/publishers/<id>/active", methods=['GET', 'POST'])
+def change_active(id):
+    publisher_repository.switch_active(id)
+    return redirect("/publishers")

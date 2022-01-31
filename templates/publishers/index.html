@@ -8,7 +8,25 @@
         <br>
       {{publisher.name}}<br>
       {{publisher.location}}<br>
+      {{publisher.active}}<br>
       {{publisher.id}}<br>
+
+      <a href="/books/{{publisher.id}}/active" method="POST">Edit entry</a><br>
+      <div>
+        <label for="active">Active?:</label>
+        <select id="active" name="active">
+    
+          <option value="true" {% if publisher.active == True %} selected="selected" {% endif %}>
+            True
+          </option>
+    
+          <option value="false" {% if publisher.active == False %} selected="selected" {% endif %}>
+            False
+          </option>
+    
+        </select>
+      </div>
+      <button type="submit">Update Task</button>
         <br>
     </div>
 </div>

@@ -29,6 +29,11 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        publisher = Publisher(row["name"], row["location"], row["id"] )
+        publisher = Publisher(row["name"], row["location"], row["active"], row["id"])
         publishers.append(publisher)
     return publishers
+
+def switch_active(publisher):
+    sql = "UPDATE publishers SET (active) = (%s) WHERE id = %s"
+    values = [publisher.active]
+    run_sql(sql, values)

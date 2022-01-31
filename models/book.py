@@ -1,6 +1,6 @@
 class Book:
 
-    def __init__(self, title, publisher, author, genre, stock, cost_price, sale_price, markup, blurb, id = None):
+    def __init__(self, title, publisher, author, genre, stock, cost_price, sale_price, blurb, id = None):
         self.title = title
         self.publisher = publisher
         self.author = author
@@ -8,7 +8,6 @@ class Book:
         self.stock = stock
         self.cost_price = cost_price
         self.sale_price = sale_price
-        self.markup = markup
         self.blurb = blurb
         self.id = id
 

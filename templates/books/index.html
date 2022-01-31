@@ -13,11 +13,10 @@
       <b>Stock level:</b> {{book.stock}}<br>
       <b>Cost price:</b> {{book.cost_price}}<br>
       <b>Sale price:</b> {{book.sale_price}}<br>
-      <b>Markup:</b> {{book.markup}}<br>
       <b>Blurb:</b> {{book.blurb}}<br>
       <a href="/books/{{book.id}}/edit" method="POST">Edit entry</a>
-      <a href="/books/{{book.id}}/sell">Sell copy</a>
-      <a href="/books/{{book.id}}/delete">Remove book from inventory</a>
+      <a href="/books/{{book.id}}/sell" method="POST">Sell copy</a>
+      <a href="/books/{{book.id}}/delete" method="POST">Remove book from inventory</a>
         </p>
         <br>
     </div>
