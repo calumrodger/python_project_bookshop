@@ -1,3 +1,4 @@
+import pdb
 from db.run_sql import run_sql
 
 from models.publisher import Publisher
@@ -17,9 +18,9 @@ def delete_all():
     sql = "DELETE  FROM publishers"
     run_sql(sql)
 
-def delete_publisher(publisher):
+def delete_publisher(id):
     sql = "DELETE  FROM publishers WHERE id = %s"
-    values = [publisher.id]
+    values = [id]
     run_sql(sql, values)
 
 def select_all():
@@ -43,12 +44,22 @@ def select(id):
         publisher = Publisher(result["name"], result["location"], result["active"], result["id"])
     return publisher
 
-def switch_active(publisher):
+def switch_active(id):
     sql = "UPDATE publishers SET (active) = (%s) WHERE id = %s"
-    values = [publisher.active]
+    values = [id]
     run_sql(sql, values)
 
 def update(publisher):
     sql = "UPDATE publishers SET (name, location, active) = (%s, %s, %s) WHERE id = %s"
     values = [publisher.name, publisher.location, publisher.active, publisher.id]
     run_sql(sql, values)
+
+# !! COME BACK TO THIS IF YOU HAVE TIME
+# def switch_active_status(publisher):
+#     if publisher.active == True:
+#         sql = "UPDATE publishers SET active = False WHERE id = %s"
+#     else:
+#         sql = "UPDATE publishers SET active = True WHERE id = %s"
+#     publisher = [publisher.active]
+#     pdb.set_trace()
+#     run_sql(sql, publisher)

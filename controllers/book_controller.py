@@ -28,9 +28,19 @@ def sell_book(id):
     book_repository.sell_copy(id)
     return redirect("/books")
 
+@books_blueprint.route("/books/<id>/buy", methods=['GET'])
+def buy_book(id):
+    book_repository.buy_copy(id)
+    return redirect("/books")
+
+@books_blueprint.route("/books/<id>", methods=['GET'])
+def edit_book(id):
+    book = book_repository.select(id)
+    publishers = publisher_repository.select_all()
+    return render_template('books/show.html', book=book, all_publishers=publishers)
+
 @books_blueprint.route("/books/<id>", methods=['POST'])
 def update_book(id):
-
     title = request.form["title"]
     publisher_id = request.form["publisher_id"]
     author = request.form["author"]
@@ -40,18 +50,9 @@ def update_book(id):
     sale_price = request.form["sale_price"]
     blurb = request.form["blurb"]
     publisher = publisher_repository.select(publisher_id)
-
     book = Book(title, publisher, author, genre, stock, cost_price, sale_price, blurb, id)
-
-    
     book_repository.update(book)
     return redirect ("/books/" + id)
-
-@books_blueprint.route("/books/<id>", methods=['GET'])
-def edit_book(id):
-    book = book_repository.select(id)
-    publishers = publisher_repository.select_all()
-    return render_template('books/show.html', book=book, all_publishers=publishers)
 
 @books_blueprint.route("/books/new", methods=['GET'])
 def new_book():
@@ -60,7 +61,6 @@ def new_book():
 
 @books_blueprint.route("/books/new", methods=['POST'])
 def create_book():
-    # name in request form is name in 'description' of form data
     title = request.form["title"]
     publisher_id = request.form["publisher_id"]
     author = request.form["author"]

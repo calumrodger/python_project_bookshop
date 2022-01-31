@@ -45,9 +45,14 @@ def select(id):
     return book
 
 def sell_copy(id):
-        sql = "UPDATE books SET stock = stock - 1 WHERE id = %s"
-        book = [id]
-        run_sql(sql, book)
+    sql = "UPDATE books SET stock = stock - 1 WHERE id = %s"
+    book = [id]
+    run_sql(sql, book)
+
+def buy_copy(id):
+    sql = "UPDATE books SET stock = stock + 1 WHERE id = %s"
+    book = [id]
+    run_sql(sql, book)
 
 def update(book):
     sql = "UPDATE books SET (title, publisher_id, author, genre, stock, cost_price, sale_price, blurb) = (%s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %s"

@@ -12,10 +12,10 @@ def list_publishers():
     publishers = publisher_repository.select_all()
     return render_template("publishers/index.html", all_publishers = publishers)
 
-@publishers_blueprint.route("/publishers/<id>/active", methods=['GET'])
-def change_active(id):
-    publisher_repository.switch_active(id)
-    return redirect("/publishers")
+# @publishers_blueprint.route("/publishers/<id>/active", methods=['GET'])
+# def change_active(id):
+#     publisher_repository.switch_active(id)
+#     return redirect("/publishers")
 
 @publishers_blueprint.route("/publishers/<id>", methods=['GET'])
 def edit_publisher(id):
@@ -24,12 +24,10 @@ def edit_publisher(id):
 
 @publishers_blueprint.route("/publishers/<id>", methods=['POST'])
 def update_publisher(id):
-    # pdb.set_trace()
     name = request.form["name"]
     location = request.form["location"]
     active = request.form["active"]
     publisher = Publisher(name, location, active, id)
-    
     publisher_repository.update(publisher)
     return redirect ("/publishers/" + id)
 
@@ -45,3 +43,14 @@ def create_publisher():
     publisher = Publisher(name, location, active, id)
     publisher_repository.save(publisher)
     return redirect("/publishers")
+
+@publishers_blueprint.route("/publishers/<id>/delete", methods=['GET'])
+def remove_publisher(id):
+    publisher_repository.delete_publisher(id)
+    return redirect("/publishers")
+
+# !!!COME BACK TO THIS IF YOU HAVE TIME
+# @publishers_blueprint.route("/publishers/<id>/active", methods=['GET'])
+# def change_active_status(id):
+#     publisher_repository.switch_active_status(id)
+#     return redirect("/publishers" + id)
