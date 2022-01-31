@@ -33,7 +33,11 @@ def update_publisher(id):
     publisher_repository.update(publisher)
     return redirect ("/publishers/" + id)
 
-@publishers_blueprint.route("/publishers", methods=['POST'])
+@publishers_blueprint.route("/publishers/new", methods=['GET'])
+def new_publisher():
+    return render_template("/publishers/new.html")
+
+@publishers_blueprint.route("/publishers/new", methods=['POST'])
 def create_publisher():
     name = request.form["name"]
     location = request.form["location"]

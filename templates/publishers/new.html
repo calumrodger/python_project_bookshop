@@ -1,25 +1,25 @@
-
-{% extends "base.html" %}
+{% extends "base.html" %} 
 
 {% block content %}
-Placeholder text.
-    <!-- <form action = "/publishers" method = "post">
-        <div>
-        <label for = "name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Name" required autofocus>
-        </div>
-        <div>
-        <label for = "location">Location:</label>
-        <input type="text" id="location" name="location" placeholder="Location" required>
-        </div>
-        <div>
-            <label for="active">Active?:</label>
-            <select id="active" name="active">
-                <option value="true">True</option>
-                <option value="false">False</option>
-            </select>
-        </div>
 
-        <button type="submit">Add</button>
-    </form> -->
-{% endblock %} 
+<form action="/publishers/new" method="post">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="None" required autofocus>
+  </div>
+  <div>
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" value="None" required>
+  </div>
+  <div>
+    <label for="active">Active?:</label>
+    <input type="text" id="active" name="active" value="True" required>
+  </div>
+
+
+
+  <button type="submit">Update Publisher</button>
+
+</form>
+
+{% endblock %}
