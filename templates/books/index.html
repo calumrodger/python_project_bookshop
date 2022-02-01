@@ -3,28 +3,28 @@
 {% block content %}
 <div>
   <div>
-  <form action="books/byauthor" method="post">
-    <label for="author">Filter by author:</label>
-    <select id="author" name="author">
-      {% for book in all_books %}
-        <option value="{{ book.author }}">
-          {{ book.author }}
-        </option>
-      {% endfor %}
-    </select>
-    <button type="submit", action="books/byauthor", method="post">Go</button>
-  </form>
-  <form action="books/bygenre" method="post">
-    <label for="genre">Filter by genre:</label>
-    <select id="genre" name="genre">
-      {% for book in all_books %}
-        <option value="{{ book.genre }}">
-          {{ book.genre }}
-        </option>
-      {% endfor %}
-    </select>
-    <button type="submit", action="books/bygenre", method="post">Go</button>
-  </form>
+    <form action="books/byauthor" method="post">
+      <label for="author">Filter by author:</label>
+      <select id="author" name="author">
+        {% for book in all_books %}
+          <option value="{{ book.author }}">
+            {{ book.author }}
+          </option>
+        {% endfor %}
+      </select>
+      <button type="submit", action="books/byauthor", method="post">Go</button>
+    </form>
+    <form action="books/bygenre" method="post">
+      <label for="genre">Filter by genre:</label>
+      <select id="genre" name="genre">
+        {% for book in all_books %}
+          <option value="{{ book.genre }}">
+            {{ book.genre }}
+          </option>
+        {% endfor %}
+      </select>
+      <button type="submit", action="books/bygenre", method="post">Go</button>
+    </form>
   </div>
 </div>
 <!-- <section id="gallery"> -->
