@@ -83,3 +83,29 @@ def select_by_genre(search_term):
             book = Book(row["title"], row["publisher_id"], row["author"], row["genre"], row["stock"], row["cost_price"], row["sale_price"], row["blurb"], row["image"], row["id"])
             books.append(book)
     return books
+
+def list_all_genres():
+    books = []
+    genres = []
+    sql = "SELECT * FROM books"
+    results = run_sql(sql)
+    for row in results:
+        book = Book(row["title"], row["publisher_id"], row["author"], row["genre"], row["stock"], row["cost_price"], row["sale_price"], row["blurb"], row["image"], row["id"])
+        books.append(book)
+        for book in books:
+                if book.genre not in genres:
+                    genres.append(book.genre)
+    return genres
+
+def list_all_authors():
+    books = []
+    authors = []
+    sql = "SELECT * FROM books"
+    results = run_sql(sql)
+    for row in results:
+        book = Book(row["title"], row["publisher_id"], row["author"], row["genre"], row["stock"], row["cost_price"], row["sale_price"], row["blurb"], row["image"], row["id"])
+        books.append(book)
+        for book in books:
+                if book.author not in authors:
+                    authors.append(book.author)
+    return authors

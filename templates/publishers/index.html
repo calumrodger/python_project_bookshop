@@ -3,8 +3,7 @@
 {% block content %}
 
 {% for publisher in all_publishers %} 
-<div class="publisher">
-    <div class="content">
+<div>
         <br>
       Name:{{publisher.name}}<br>
       Location:{{publisher.location}}<br>
@@ -17,7 +16,6 @@
       <a href="/publishers/{{publisher.id}}/deactive" method="POST">Deactivate publisher</a><br>
         {% endif %}
       <a href="/publishers/{{publisher.id}}/delete" method="POST">Remove publisher</a><br>
-
 </div>
       
 {% endfor %} 

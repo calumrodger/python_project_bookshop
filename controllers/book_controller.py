@@ -12,7 +12,9 @@ books_blueprint = Blueprint("/books", __name__)
 def list_books():
     books = book_repository.select_all()
     publishers = publisher_repository.select_all()
-    return render_template("/books/index.html", all_books = books, all_publishers = publishers)
+    genres = book_repository.list_all_genres()
+    authors = book_repository.list_all_authors()
+    return render_template("/books/index.html", all_books = books, all_publishers = publishers, all_genres=genres, all_authors=authors)
 
 
 
@@ -87,12 +89,16 @@ def search_for_author():
     search_term = request.form["author"]
     books = book_repository.select_by_author(search_term)
     publishers = publisher_repository.select_all()
-    return render_template("books/index.html", all_books=books, all_publishers=publishers)
+    genres = book_repository.list_all_genres()
+    authors = book_repository.list_all_authors()
+    return render_template("books/byauthor.html", all_books=books, all_publishers=publishers, all_genres=genres, all_authors=authors)
 
 @books_blueprint.route("/books/bygenre", methods=['POST'])
 def search_for_genre():
     search_term = request.form["genre"]
     books = book_repository.select_by_genre(search_term)
     publishers = publisher_repository.select_all()
-    return render_template("books/index.html", all_books=books, all_publishers=publishers)
+    genres = book_repository.list_all_genres()
+    authors = book_repository.list_all_authors()
+    return render_template("/books/bygenre.html", all_books=books, all_publishers=publishers, all_genres=genres, all_authors=authors)
 

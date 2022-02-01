@@ -1,42 +1,30 @@
-<!-- {% extends "base.html" %} 
+{% extends "base.html" %} 
 
 {% block content %}
+</form>
+<form action="/books">
+  <input type="submit" value="Back to All Books">
+</form>
 
 {% for book in all_books %} 
-<div class="book">
-    <div class="content">
+    <div>
       {% if book.image != None %}
-      <img src= "{{book.image}}" width="300" height="300"><br>
+      <a href="/books/{{book.id}}" method="GET"><img src= "{{book.image}}" width="300" height="300"></a><br>
         {% else %}
-      <img src= "https://i.imgur.com/1XaAof3.jpg" width="300" height="300"><br>
+        <a href="/books/{{book.id}}" method="GET"><img src= "https://i.imgur.com/1XaAof3.jpg" width="300" height="300"></a><br>
       {% endif %}
       <b>Title:</b> {{book.title}}<br>
-      <b>Publisher Index:</b> {{book.publisher.id}}<br>
-      <b>Author:</b> {{book.author}}<br>
-      <b>Genre:</b> {{book.genre}}<br>
       {% if book.stock == 0 %}
       <b>Stock level:</b> <span style="color:red"> {{book.stock}} </span><br>
-        {% elif book.stock < 3 %}
+        {% elif book.stock < 2 %}
       <b>Stock level:</b> <span style="color:orange"> {{book.stock}} </span><br>
       {% else %}
       <b>Stock level:</b> {{book.stock}}<br>
         {% endif %}
-      <b>Cost price:</b> {{book.cost_price}}<br>
-      <b>Sale price:</b> {{book.sale_price}}<br>
-      <b>Markup:</b> {{book.sale_price - book.cost_price}}<br>
-      <b>Blurb:</b> {{book.blurb}}<br>
-      <b>Index:</b> {{book.id}}<br>
-      <a href="/books/{{book.id}}" method="GET">Edit entry</a>
-      {% if book.stock > 0 %}
-      <a href="/books/{{book.id}}/sell" method="POST">Sell copy</a>
-      {% endif %}
-      <a href="/books/{{book.id}}/buy" method="POST">Buy copy</a>
-      <a href="/books/{{book.id}}/delete" method="POST">Remove book from inventory</a><br>
         <br>
     </div>
-</div>
 
       
 {% endfor %} 
 
-{% endblock %} -->
+{% endblock %}
