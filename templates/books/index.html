@@ -27,7 +27,7 @@
   </form>
   </div>
 </div>
-{% for book in all_books %} 
+{% for book in all_books %}  
 <div>
       {% if book.image != None %}
       <a href="/books/{{book.id}}" method="GET"><img src= "{{book.image}}" width="300" height="300"></a><br>

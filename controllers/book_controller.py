@@ -96,6 +96,7 @@ def search_for_author():
 @books_blueprint.route("/books/bygenre", methods=['POST'])
 def search_for_genre():
     search_term = request.form["genre"]
+    pdb.set_trace()
     books = book_repository.select_by_genre(search_term)
     publishers = publisher_repository.select_all()
     genres = book_repository.list_all_genres()
