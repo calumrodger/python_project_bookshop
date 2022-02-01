@@ -82,10 +82,10 @@ def new_book():
     return render_template('books/new.html', all_publishers=publishers)  
 
 
-# @books_blueprint.route("/", methods=['POST'])
+# @books_blueprint.route("/books/byauthor", methods=['POST'])
 # def search_for_author(id):
-#     author = request.form["author"]
-#     books = book_repository.select_by_author(author)
+#     id.author = request.form["author"]
+#     books = book_repository.select_by_author(id)
 #     publishers = publisher_repository.select_all()
 #     return redirect("books/index.html", all_books=books, all_publishers=publishers)
 
@@ -93,5 +93,5 @@ def new_book():
 # def list_books_by_author(id):
 #     books = book_repository.select_by_author(id)
 #     publishers = publisher_repository.select_all()
-#     return render_template("/books/byauthor.html", all_books = books, all_publishers=publishers)
+#     return render_template("/books/index.html", all_books=books, all_publishers=publishers)
 
