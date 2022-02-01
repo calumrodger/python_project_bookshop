@@ -12,11 +12,15 @@
 </head>
 <body>
   <header>
+<div id= "grid-container">
+      <div id= "header-left">
     <section class="header-text">
     <h1>A Great Deal Smaller Than the Entire Universe.</h1>
     <h2>For very few of your poetry needs.</h2>
-    <nav>
-      <ul>
+    </section>
+      </div>
+  <div id="header-right">
+    <section class="header-buttons">
         <form action="/">
           <input type="submit" value="Home">
         </form>
@@ -31,14 +35,15 @@
         </form>
         <form action="/publishers/new">
           <input type="submit" value="Add publisher">
-        </form>
-      </ul>
-    </nav>
+        </form>  
   </section>
+  </div>
   </header>
-  <div>
+</div>
     {% block content %}
     {% endblock %}
-  </div>
 </body>
+<footer>
+  'There's no money in poetry, but then there's no poetry in money either.' - Robert Graves
+</footer>
 </html>

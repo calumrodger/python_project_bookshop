@@ -3,12 +3,12 @@
 {% block content %}
 
 {% for publisher in all_publishers %} 
-<div>
+<section class="publishers">
         <br>
-      Name:{{publisher.name}}<br>
-      Location:{{publisher.location}}<br>
-      Active?:{{publisher.active}}<br>
-      Index:{{publisher.id}}<br>
+      <b>Name:</b> {{publisher.name}}<br>
+      <b>Location:</b> {{publisher.location}}<br>
+      <b>Active?:</b> {{publisher.active}}<br>
+      <b>Index:</b> {{publisher.id}}<br>
       <a href="/publishers/{{publisher.id}}" method="POST">Edit entry</a><br>
         {% if publisher.active == False %}
       <a href="/publishers/{{publisher.id}}/active" method="POST">Activate publisher</a><br>
@@ -16,7 +16,7 @@
       <a href="/publishers/{{publisher.id}}/deactive" method="POST">Deactivate publisher</a><br>
         {% endif %}
       <a href="/publishers/{{publisher.id}}/delete" method="POST">Remove publisher</a><br>
-</div>
+</section>
       
 {% endfor %} 
 

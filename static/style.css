@@ -2,18 +2,70 @@
   font-family: "Poppins", sans-serif;
 }
 
+#grid-container {
+  display: grid;
+  grid-template-areas:
+    "header-left header-center header-right"
+    "main main main"
+    "footer footer footer";
+  grid-template-columns: 8fr 1fr 1fr;
+  grid-template-rows: 100px, 100px, 100px;
+  gap: 15px 15px;
+}
+
+#header-right {
+  align-content: right;
+}
+body {
+  background-color: #a8edea;
+}
+
+h2 {
+  font-size: medium;
+}
+
 header {
-  background-color: gray;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
   text-indent: 50px;
 }
 
+footer {
+  background-color: #fed6e3;
+  position: fixed;
+  bottom: 10px;
+  left: 15px;
+  right: 15px;
+  height: 30px;
+  text-align: center;
+  padding: 1px;
+}
+
 .search-by {
-  background-color: brown;
+  background-color: #fed6e3;
   padding: 20px;
   margin: 6px;
-  color: blue
 }
 
 .header-text {
   padding: 10px;
+  display: inline;
+}
+
+.header-buttons {
+  padding: 10px;
+  display: inline;
+  align-content: right
+}
+
+.main-content {
+  grid-area: main;
+}
+
+.book-item {
+  grid-area: main;
+  display: row wrap;
+}
+
+.publishers {
+  padding: 20px;
 }

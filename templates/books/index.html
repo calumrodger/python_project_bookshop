@@ -1,6 +1,7 @@
 {% extends "base.html" %} 
 
 {% block content %}
+
   <section class="search-by">
   <form action="books/byauthor" method="post">
     <label for="author">Filter by author:</label>
@@ -24,8 +25,13 @@
     </select>
     <button type="submit", action="bygenre/", method="post">Go</button>
   </form>
-{% for book in all_books %}  
 </section>
+<!-- <div id="grid-container"> -->
+  <div id="main-content">
+{% for book in all_books %}  
+
+<ul>
+ <div id="book-item">
       {% if book.image != None %}
       <a href="/books/{{book.id}}" method="GET"><img src= "{{book.image}}" width="300" height="300"></a><br>
         {% else %}
@@ -40,6 +46,9 @@
       <b>Stock level:</b> {{book.stock}}<br>
         {% endif %}
         <br>
+ </div>
+</ul>
+</div>
 </div>
 
       
