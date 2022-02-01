@@ -85,7 +85,9 @@ def new_book():
 #     books = book_repository.select_by_author()
 #     return render_template("/books/index.html", all_books = books)
 
-# @books_blueprint.route("/books/<author>", methods=['POST'])
-# def search_for_author():
+# @books_blueprint.route("/", methods=['POST'])
+# def search_for_author(id):
 #     author = request.form["author"]
-#     book_repository.select_by_author(author)
+#     books = book_repository.select_by_author(id)
+#     publishers = publisher_repository.select_all()
+#     return render_template("books/index.html", all_books=books, all_publishers=publishers)

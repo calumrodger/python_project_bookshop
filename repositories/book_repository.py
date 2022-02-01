@@ -44,11 +44,10 @@ def select(id):
         book = Book(result["title"], publisher, result["author"], result["genre"], result["stock"], result["cost_price"], result["sale_price"], result["blurb"], result["id"])
     return book
 
-# def select_by_author():
+# def select_by_author(author):
 #     books = []
-#     author = request.form["author"]
 #     sql = "SELECT * FROM books WHERE author = %s"
-#     value = author
+#     value = [id.author]
 #     results = run_sql(sql, value)
 #     if results is not None:
 #         for row in results:
