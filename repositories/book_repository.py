@@ -6,8 +6,8 @@ import repositories.book_repository as book_repository
 import repositories.publisher_repository as publisher_repository
 
 def save(book):
-    sql = "INSERT INTO books (title, publisher_id, author, genre, stock, cost_price, sale_price, blurb) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING *"
-    values = [book.title, book.publisher.id, book.author, book.genre, book.stock, book.cost_price, book.sale_price, book.blurb]
+    sql = "INSERT INTO books (title, publisher_id, author, genre, stock, cost_price, sale_price, blurb, image) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING *"
+    values = [book.title, book.publisher.id, book.author, book.genre, book.stock, book.cost_price, book.sale_price, book.blurb, book.image]
     results = run_sql(sql, values)
     id = results[0]['id']
     book.id = id
@@ -29,7 +29,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        book = Book(row["title"], row["publisher_id"], row["author"], row["genre"], row["stock"], row["cost_price"], row["sale_price"], row["blurb"], row["id"])
+        book = Book(row["title"], row["publisher_id"], row["author"], row["genre"], row["stock"], row["cost_price"], row["sale_price"], row["blurb"], row["image"], row["id"])
         books.append(book)
     return books
 
@@ -41,7 +41,7 @@ def select(id):
 
     if result is not None:
         publisher = publisher_repository.select(result["publisher_id"])
-        book = Book(result["title"], publisher, result["author"], result["genre"], result["stock"], result["cost_price"], result["sale_price"], result["blurb"], result["id"])
+        book = Book(result["title"], publisher, result["author"], result["genre"], result["stock"], result["cost_price"], result["sale_price"], result["blurb"], result["image"], result["id"])
     return book
 
 # def select_by_author(author):
@@ -66,6 +66,6 @@ def buy_copy(id):
     run_sql(sql, book)
 
 def update(book):
-    sql = "UPDATE books SET (title, publisher_id, author, genre, stock, cost_price, sale_price, blurb) = (%s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [book.title, book.publisher.id, book.author, book.genre, book.stock, book.cost_price, book.sale_price, book.blurb, book.id]
+    sql = "UPDATE books SET (title, publisher_id, author, genre, stock, cost_price, sale_price, blurb, image) = (%s, %s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [book.title, book.publisher.id, book.author, book.genre, book.stock, book.cost_price, book.sale_price, book.blurb, book.image, book.id]
     run_sql(sql, values)

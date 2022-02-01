@@ -52,8 +52,9 @@ def update_book(id):
     cost_price = request.form["cost_price"]
     sale_price = request.form["sale_price"]
     blurb = request.form["blurb"]
+    image = request.form["image"]
     publisher = publisher_repository.select(publisher_id)
-    book = Book(title, publisher, author, genre, stock, cost_price, sale_price, blurb, id)
+    book = Book(title, publisher, author, genre, stock, cost_price, sale_price, blurb, image, id)
     book_repository.update(book)
     return redirect ("/books/" + id)
 
@@ -69,8 +70,9 @@ def create_book():
     cost_price = request.form["cost_price"]
     sale_price = request.form["sale_price"]
     blurb = request.form["blurb"]
+    image = request.form["image"]
     publisher = publisher_repository.select(publisher_id)
-    book = Book(title, publisher, author, genre, stock, cost_price, sale_price, blurb, id)
+    book = Book(title, publisher, author, genre, stock, cost_price, sale_price, blurb, image, id)
     book_repository.save(book)
     return redirect ("/books")
 
@@ -80,14 +82,14 @@ def new_book():
     return render_template('books/new.html', all_publishers=publishers)  
 
   
-# @books_blueprint.route("/books/bypublisher")
-# def list_books_by_publisher():
+# @books_blueprint.route("/books/byauthor")
+# def list_books_by_author():
 #     books = book_repository.select_by_author()
 #     return render_template("/books/index.html", all_books = books)
 
 # @books_blueprint.route("/", methods=['POST'])
 # def search_for_author(id):
 #     author = request.form["author"]
-#     books = book_repository.select_by_author(id)
+#     books = book_repository.select_by_author(author)
 #     publishers = publisher_repository.select_all()
-#     return render_template("books/index.html", all_books=books, all_publishers=publishers)
+#     return render_template("books/byauthor.html", all_books=books, all_publishers=publishers)

@@ -19,6 +19,7 @@ CREATE TABLE books (
     cost_price FLOAT,
     sale_price FLOAT,
     markup FLOAT,
+    image VARCHAR(255),
     blurb TEXT
 );
 
