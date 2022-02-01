@@ -4,6 +4,7 @@ from models.book import Book
 from models.publisher import Publisher
 import repositories.book_repository as book_repository
 import repositories.publisher_repository as publisher_repository
+import pdb
 
 def save(book):
     sql = "INSERT INTO books (title, publisher_id, author, genre, stock, cost_price, sale_price, blurb, image) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING *"
@@ -61,13 +62,24 @@ def update(book):
     values = [book.title, book.publisher.id, book.author, book.genre, book.stock, book.cost_price, book.sale_price, book.blurb, book.image, book.id]
     run_sql(sql, values)
 
-# def select_by_author(id):
-#     books = []
-#     sql = "SELECT * FROM books WHERE author = %s"
-#     value = [id.author]
-#     results = run_sql(sql, value)
-#     if results is not None:
-#         for row in results:
-#             book = Book(row["title"], row["publisher_id"], row["author"], row["genre"], row["stock"], row["cost_price"], row["sale_price"], row["blurb"], row["image"], row["id"])
-#             books.append(book)
-#         return books
+def select_by_author(search_term):
+    books = []
+    sql = "SELECT * FROM books WHERE author = %s"
+    value = [search_term]
+    results = run_sql(sql, value)
+    if results is not None:
+        for row in results:
+            book = Book(row["title"], row["publisher_id"], row["author"], row["genre"], row["stock"], row["cost_price"], row["sale_price"], row["blurb"], row["image"], row["id"])
+            books.append(book)
+    return books
+
+def select_by_genre(search_term):
+    books = []
+    sql = "SELECT * FROM books WHERE genre = %s"
+    value = [search_term]
+    results = run_sql(sql, value)
+    if results is not None:
+        for row in results:
+            book = Book(row["title"], row["publisher_id"], row["author"], row["genre"], row["stock"], row["cost_price"], row["sale_price"], row["blurb"], row["image"], row["id"])
+            books.append(book)
+    return books

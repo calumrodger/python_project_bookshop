@@ -25,7 +25,7 @@ body {
     font-family: sans-serif;
   }
 
-#gallery {
+/* #gallery {
     display: inline flex;
     flex-flow: flex wrap;
     align-content: center;
@@ -37,6 +37,6 @@ body {
     background-color: lightblue;
     border: 6px solid white;
     flex: 66%; 
-  }
+  } */
 
   

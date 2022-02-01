@@ -82,16 +82,17 @@ def new_book():
     return render_template('books/new.html', all_publishers=publishers)  
 
 
-# @books_blueprint.route("/books/byauthor", methods=['POST'])
-# def search_for_author(id):
-#     id.author = request.form["author"]
-#     books = book_repository.select_by_author(id)
-#     publishers = publisher_repository.select_all()
-#     return redirect("books/index.html", all_books=books, all_publishers=publishers)
+@books_blueprint.route("/books/byauthor", methods=['POST'])
+def search_for_author():
+    search_term = request.form["author"]
+    books = book_repository.select_by_author(search_term)
+    publishers = publisher_repository.select_all()
+    return render_template("books/index.html", all_books=books, all_publishers=publishers)
 
-# @books_blueprint.route("/books/byauthor", methods=['GET'])
-# def list_books_by_author(id):
-#     books = book_repository.select_by_author(id)
-#     publishers = publisher_repository.select_all()
-#     return render_template("/books/index.html", all_books=books, all_publishers=publishers)
+@books_blueprint.route("/books/bygenre", methods=['POST'])
+def search_for_genre():
+    search_term = request.form["genre"]
+    books = book_repository.select_by_genre(search_term)
+    publishers = publisher_repository.select_all()
+    return render_template("books/index.html", all_books=books, all_publishers=publishers)
 

@@ -23,10 +23,10 @@
           <input type="submit" value="Publishers">
         </form>
         <form action="/books/new">
-          <input type="submit" value="Add book" />
+          <input type="submit" value="Add book">
         </form>
         <form action="/publishers/new">
-          <input type="submit" value="Add publisher" />
+          <input type="submit" value="Add publisher">
         </form>
         
         <div>
@@ -34,13 +34,22 @@
           <label for="author">List by author:</label>
           <select id="author" name="author">
             {% for book in all_books %}
-              <option value="{{ book.id }}">
+              <option value="{{ book.author }}">
                 {{ book.author }}
               </option>
             {% endfor %}
           </select>
-          <button type="submit", action="books/byauthor.html", method="post">Go</button>
+          <button type="submit", action="books/byauthor", method="post">Go</button>
         </form>
+        <div class="genre-search">
+          <form action="books/bygenre" method="post">
+          <input type="text" placeholder="Search by genre">
+          <button type="submit", action="books/bygenre", method="post">Go</button>
+        </form>
+        </div>
+        <for action="books/bygenre" method="post">
+        <label for="genre">
+        </for>
         </div>
       </ul>
     </nav>

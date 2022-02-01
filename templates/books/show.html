@@ -2,6 +2,31 @@
 
 {% block content %}
 
+      <!-- <b>Title:</b> {{book.title}}<br>
+      <b>Publisher Index:</b> {{book.publisher.id}}<br>
+      <b>Author:</b> {{book.author}}<br>
+      <b>Genre:</b> {{book.genre}}<br>
+      {% if book.stock == 0 %}
+      <b>Stock level:</b> <span style="color:red"> {{book.stock}} </span><br>
+        {% elif book.stock < 3 %}
+      <b>Stock level:</b> <span style="color:orange"> {{book.stock}} </span><br>
+      {% else %}
+      <b>Stock level:</b> {{book.stock}}<br>
+        {% endif %}
+      <b>Cost price:</b> {{book.cost_price}}<br>
+      <b>Sale price:</b> {{book.sale_price}}<br>
+      <b>Markup:</b> {{book.sale_price - book.cost_price}}<br>
+      <b>Blurb:</b> {{book.blurb}}<br>
+      <b>Index:</b> {{book.id}}<br>
+      <a href="/books/{{book.id}}" method="GET">Edit entry</a>
+      {% if book.stock > 0 %}
+      <a href="/books/{{book.id}}/sell" method="POST">Sell copy</a>
+      {% endif %}
+      <a href="/books/{{book.id}}/buy" method="POST">Buy copy</a>
+      <a href="/books/{{book.id}}/delete" method="POST">Remove book from inventory</a><br>
+        <br>
+    </div> -->
+
 <div class="book">
     <div class="content">
       <img src= {{book.image}} alt="{{book.title}}" width="300" height="300"><br>
@@ -9,11 +34,24 @@
       <b>Publisher:</b> {{book.publisher.name}}<br>
       <b>Author:</b> {{book.author}}<br>
       <b>Genre:</b> {{book.genre}}<br>
+      {% if book.stock == 0 %}
+      <b>Stock level:</b> <span style="color:red"> {{book.stock}} </span><br>
+        {% elif book.stock < 2 %}
+      <b>Stock level:</b> <span style="color:orange"> {{book.stock}} </span><br>
+      {% else %}
       <b>Stock level:</b> {{book.stock}}<br>
+        {% endif %}
       <b>Cost price:</b> {{book.cost_price}}<br>
       <b>Sale price:</b> {{book.sale_price}}<br>
       <b>Markup:</b> {{book.sale_price - book.cost_price}}<br>
       <b>Blurb:</b> {{book.blurb}}<br>
+    </div>
+    <div>
+      {% if book.stock > 0 %}
+      <a href="/books/{{book.id}}/sell" method="POST">Sell copy</a>
+      {% endif %}
+      <a href="/books/{{book.id}}/buy" method="POST">Buy copy</a>
+      <a href="/books/{{book.id}}/delete" method="POST">Remove book from inventory</a><br>
     </div>
 </div>
 
@@ -24,8 +62,14 @@
   </div>
 
   <div>
-    <label for="publisher_id">Publisher ID:</label>
-    <input type="number" id="publisher_id" name="publisher_id" value="{{book.publisher}}" required>
+    <label for="publisher">Publisher:</label>
+    <select id="publisher" name="publisher_id">
+      {% for publisher in all_publishers %}
+        <option value="{{ publisher.id }}">
+          {{ publisher.name }}
+        </option>
+      {% endfor %}
+    </select>
   </div>
 
   <div>
@@ -57,6 +101,12 @@
     <label for="blurb">Blurb:</label>
     <input type="text" id="blurb" name="blurb" value="{{book.blurb}}" required>
   </div>
+
+  <div>
+    <label for="blurb">Image URL:</label>
+    <input type="text" id="blurb" name="blurb" value="{{book.image}}">
+  </div>
+
 
 
   <button type="submit">Update Book</button>
