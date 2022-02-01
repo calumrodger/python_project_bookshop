@@ -1,0 +1,19 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  background-color: gray;
+  text-indent: 50px;
+}
+
+.search-by {
+  background-color: brown;
+  padding: 20px;
+  margin: 6px;
+  color: blue
+}
+
+.header-text {
+  padding: 10px;
+}

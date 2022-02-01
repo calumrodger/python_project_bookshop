@@ -1,8 +1,7 @@
 {% extends "base.html" %} 
 
 {% block content %}
-<div>
-  <div>
+  <section class="search-by">
   <form action="books/byauthor" method="post">
     <label for="author">Filter by author:</label>
     <select id="author" name="author">
@@ -25,14 +24,12 @@
     </select>
     <button type="submit", action="bygenre/", method="post">Go</button>
   </form>
-  </div>
-</div>
 {% for book in all_books %}  
-<div>
+</section>
       {% if book.image != None %}
       <a href="/books/{{book.id}}" method="GET"><img src= "{{book.image}}" width="300" height="300"></a><br>
         {% else %}
-        <a href="/books/{{book.id}}" method="GET"><img src= "https://i.imgur.com/1XaAof3.jpg" width="300" height="300"></a><br>
+        <a href="/books/{{book.id}}" method="GET"><img src= "https://i.imgur.com/k7LOImQ.jpg" width="300" height="300"></a><br>
       {% endif %}
       <b>Title:</b> {{book.title}}<br>
       {% if book.stock == 0 %}
