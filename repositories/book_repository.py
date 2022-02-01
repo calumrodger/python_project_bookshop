@@ -44,16 +44,7 @@ def select(id):
         book = Book(result["title"], publisher, result["author"], result["genre"], result["stock"], result["cost_price"], result["sale_price"], result["blurb"], result["image"], result["id"])
     return book
 
-# def select_by_author(author):
-#     books = []
-#     sql = "SELECT * FROM books WHERE author = %s"
-#     value = [id.author]
-#     results = run_sql(sql, value)
-#     if results is not None:
-#         for row in results:
-#             book = Book(row["title"], row["publisher_id"], row["author"], row["genre"], row["stock"], row["cost_price"], row["sale_price"], row["blurb"], row["id"])
-#             books.append(book)
-#         return books
+
 
 def sell_copy(id):
     sql = "UPDATE books SET stock = stock - 1 WHERE id = %s"
@@ -69,3 +60,14 @@ def update(book):
     sql = "UPDATE books SET (title, publisher_id, author, genre, stock, cost_price, sale_price, blurb, image) = (%s, %s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
     values = [book.title, book.publisher.id, book.author, book.genre, book.stock, book.cost_price, book.sale_price, book.blurb, book.image, book.id]
     run_sql(sql, values)
+
+# def select_by_author(id):
+#     books = []
+#     sql = "SELECT * FROM books WHERE author = %s"
+#     value = [id.author]
+#     results = run_sql(sql, value)
+#     if results is not None:
+#         for row in results:
+#             book = Book(row["title"], row["publisher_id"], row["author"], row["genre"], row["stock"], row["cost_price"], row["sale_price"], row["blurb"], row["image"], row["id"])
+#             books.append(book)
+#         return books
