@@ -1,12 +1,15 @@
 {% extends "base.html" %} 
 
 {% block content %}
+<section class="search-by">
 <form action="/books">
   <input type="submit" value="Back to All Books">
 </form>
-
-{% for book in all_books %} 
-    <div>
+</section>
+<br>
+<section class="book-container">
+{% for book in all_books %}
+  <ul>
       {% if book.image != None %}
       <a href="/books/{{book.id}}" method="GET"><img src= "{{book.image}}" width="300" height="300"></a><br>
         {% else %}
@@ -21,9 +24,8 @@
       <b>Stock level:</b> {{book.stock}}<br>
         {% endif %}
         <br>
-    </div>
-
+      </ul>
       
 {% endfor %} 
-
+</section>
 {% endblock %}

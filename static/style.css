@@ -4,7 +4,7 @@
   display: grid;
   grid-template-areas:
     "header-left header-center header-right"
-    "main main main"
+    "main main"
     "footer footer footer";
   grid-template-columns: 8fr 1fr 1fr;
   grid-template-rows: 100px, 100px, 100px;
@@ -84,17 +84,25 @@ footer {
 }
 
 .book-item {
+  flex: auto;
+  /* align-content: center;
   height: auto;
   width: 25%;
   background-size: auto;
   background-repeat: no-repeat;
   background-position: center center;
   margin: 20px;
-  padding:5px;
+  padding: 5px; */
 }
 
 
 #book-container {
+  display: flex;
   padding: 32px;
-  grid-area: main main main;
+  grid-area: main;
+  align-content: center;
+}
+
+.cancel {
+  text-align: center;
 }

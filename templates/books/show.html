@@ -5,6 +5,7 @@
 <div class="book">
     <div class="content">
       <img src= {{book.image}} alt="{{book.title}}" width="300" height="300"><br>
+      <br>
       <b>Title:</b> {{book.title}}<br>
       <b>Publisher:</b> {{book.publisher.name}}<br>
       <b>Author:</b> {{book.author}}<br>
@@ -76,7 +77,7 @@
 
   <div>
     <label for="blurb">Blurb:</label>
-    <input type="text" id="blurb" name="blurb" value="{{book.blurb}}" required>
+    <input type="text" id="blurb" name="blurb" value="{{book.blurb}}" style="height:80px; width:300px;" required>
   </div>
 
   <div>

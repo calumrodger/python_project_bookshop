@@ -39,9 +39,6 @@
 </section>
     <section class="book-container">
     {% for book in all_books %}  
-
-
- <div id="book-item">
   <ul>
       {% if book.image != None %}
       <a href="/books/{{book.id}}" method="GET"><img src= "{{book.image}}" width="300" height="300"></a><br>
@@ -50,9 +47,9 @@
       {% endif %}
       <b>Title:</b> {{book.title}}<br>
       {% if book.stock == 0 %}
-      <b>Stock level:</b> <span style="color:red"> {{book.stock}} </span><br>
+      <b>Stock level:</b> <span style="color:red"> {{book.stock}} - OUT OF STOCK!!!</span><br>
         {% elif book.stock < 2 %}
-      <b>Stock level:</b> <span style="color:orange"> {{book.stock}} </span><br>
+      <b>Stock level:</b> <span style="color:blue"> {{book.stock}} - LOW STOCK!!!</span><br>
       {% else %}
       <b>Stock level:</b> {{book.stock}}<br>
         {% endif %}

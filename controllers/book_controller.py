@@ -30,12 +30,12 @@ def remove_book(id):
 @books_blueprint.route("/books/<id>/sell", methods=['GET'])
 def sell_book(id):
     book_repository.sell_copy(id)
-    return redirect("/books/")
+    return redirect("/books")
 
 @books_blueprint.route("/books/<id>/buy", methods=['GET'])
 def buy_book(id):
     book_repository.buy_copy(id)
-    return redirect("/books/")
+    return redirect("/books")
 
 @books_blueprint.route("/books/<id>", methods=['GET'])
 def edit_book(id):

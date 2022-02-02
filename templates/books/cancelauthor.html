@@ -1,11 +1,21 @@
 {% extends "base.html" %} 
 
 {% block content %}
-
-You have cancelled {{author}} !!! <br>
-{{message}} <br>
+<section class="search-by">
 <form action="/books">
-    <input type="submit" value="Back to All Books">
-  </form>
+  <input type="submit" value="Back to All Books">
+</form>
+</section>
+<br>
+<section class="cancel">
+You have cancelled {{author}}!!! <br>
+{{message}} <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</section>
 
 {% endblock %}

@@ -1,15 +1,16 @@
 {% extends "base.html" %} 
 
 {% block content %}
-<section class="publishers"></section>
-<div>
-        <p>
+
+<section class="publishers">
+
       <b>Name:</b> {{publisher.name}}<br>
       <b>Location:</b> {{publisher.location}}<br>
       <b>Active?:</b> {{publisher.active}}<br>
       <b>Index:</b> {{publisher.id}}<br>
-</div>
 
+<br>
+<br>
 <form action="/publishers/{{publisher.id}}" method="post">
   <div>
     <label for="name">Name:</label>
