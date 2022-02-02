@@ -1,9 +1,10 @@
 {% extends "base.html" %} 
 
 {% block content %}
-
+<section class="book-container">
 {% for publisher in all_publishers %} 
-<section class="publishers">
+  <ul>
+  <section class="publisher">
         <br>
       <b>Name:</b> {{publisher.name}}<br>
       <b>Location:</b> {{publisher.location}}<br>
@@ -18,7 +19,8 @@
         {% endif %}
       <a href="/publishers/{{publisher.id}}/delete" method="POST">Remove publisher</a><br>
 </section>
+</ul>
       
 {% endfor %} 
-
+</section>
 {% endblock %}

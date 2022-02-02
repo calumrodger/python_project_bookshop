@@ -2,7 +2,6 @@
 
 {% block content %}
 <section class="search-by">
-</form>
 <form action="/books">
   <input type="submit" value="Back to All Books">
 </form>
@@ -11,13 +10,16 @@
 <section class="book-container">
 {% for book in all_books %} 
 <ul>
+  <section class="book">
       {% if book.image != None %}
       <a href="/books/{{book.id}}" method="GET"><img src= "{{book.image}}" width="300" height="300"></a><br>
         {% else %}
         <a href="/books/{{book.id}}" method="GET"><img src= "https://i.imgur.com/1XaAof3.jpg" width="300" height="300"></a><br>
       {% endif %}
+      <section class="title">
       <b>Title:</b> {{book.title}}<br>
       {% if book.stock == 0 %}
+    </section>
       <b>Stock level:</b> <span style="color:red"> {{book.stock}} </span><br>
         {% elif book.stock < 2 %}
       <b>Stock level:</b> <span style="color:orange"> {{book.stock}} </span><br>
@@ -25,11 +27,12 @@
       <b>Stock level:</b> {{book.stock}}<br>
         {% endif %}
         <br>
+        </section>
 </ul>
-</section>
+
 
 
       
 {% endfor %} 
-
+</section>
 {% endblock %}

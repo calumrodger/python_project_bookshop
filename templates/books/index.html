@@ -40,25 +40,25 @@
     <section class="book-container">
     {% for book in all_books %}  
   <ul>
+    <section class="book">
       {% if book.image != None %}
       <a href="/books/{{book.id}}" method="GET"><img src= "{{book.image}}" width="300" height="300"></a><br>
         {% else %}
       <a href="/books/{{book.id}}" method="GET"><img src= "no_image_available.jpg" width="300" height="300"></a><br>
       {% endif %}
-      <b>Title:</b> {{book.title}}<br>
+      <section class="title">
+      {{book.title}}<br>
+    </section>
       {% if book.stock == 0 %}
-      <b>Stock level:</b> <span style="color:red"> {{book.stock}} - OUT OF STOCK!!!</span><br>
+      <b>Stock:</b> <span style="color:red"> {{book.stock}} - OUT OF STOCK!!!</span><br>
         {% elif book.stock < 2 %}
-      <b>Stock level:</b> <span style="color:blue"> {{book.stock}} - LOW STOCK!!!</span><br>
+      <b>Stock:</b> <span style="color:blue"> {{book.stock}} - LOW STOCK!!!</span><br>
       {% else %}
-      <b>Stock level:</b> {{book.stock}}<br>
+      <b>Stock:</b> {{book.stock}}<br>
         {% endif %}
         <br>
-
-</ul>
-
-      
+      </section>
+</ul>   
 {% endfor %} 
-</div>
 </section>
 {% endblock %}
