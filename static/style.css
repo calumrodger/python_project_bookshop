@@ -66,17 +66,17 @@ footer {
 }
 
 .book-item {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  width: 33%;
+  height: auto;
+  width: 25%;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 20px;
+  padding:5px;
 }
 
 
-
-.book-container {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  width: 100vw;
+#book-container {
+  padding: 32px;
+  grid-area: main main main;
 }

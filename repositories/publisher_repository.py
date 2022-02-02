@@ -54,15 +54,6 @@ def update(publisher):
     values = [publisher.name, publisher.location, publisher.active, publisher.id]
     run_sql(sql, values)
 
-# !! COME BACK TO THIS IF YOU HAVE TIME
-# def switch_active_status(publisher):
-#     if publisher.active == True:
-#         sql = "UPDATE publishers SET active = False WHERE id = %s"
-#     else:
-#         sql = "UPDATE publishers SET active = True WHERE id = %s"
-#     values = [publisher.name, publisher.location, publisher.active, publisher.id]
-#     run_sql(sql, values)
-
 def switch_active_status_true(id):
     sql = "UPDATE publishers SET active = True WHERE id = %s"
     values = [id]

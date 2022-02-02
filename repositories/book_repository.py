@@ -45,8 +45,6 @@ def select(id):
         book = Book(result["title"], publisher, result["author"], result["genre"], result["stock"], result["cost_price"], result["sale_price"], result["blurb"], result["image"], result["id"])
     return book
 
-
-
 def sell_copy(id):
     sql = "UPDATE books SET stock = stock - 1 WHERE id = %s"
     book = [id]
@@ -110,18 +108,8 @@ def list_all_authors():
                     authors.append(book.author)
     return authors
 
-# def cancel_author(search_term):
-#     books = []
-#     sql = "DELETE * FROM books WHERE author = %s"
-#     value = [search_term]
-#     results = run_sql(sql, value)
-#     if results is not None:
-#         for row in results:
-#             book = Book(row["title"], row["publisher_id"], row["author"], row["genre"], row["stock"], row["cost_price"], row["sale_price"], row["blurb"], row["image"], row["id"])
-#             books.append(book)
-#     return books
-
-# def cancel_author(search_term):
-#     sql = "DELETE * FROM books WHERE author = %s"
-#     value = [search_term]
-#     run_sql(sql, value)
+def cancel_author (search_term):
+    sql = "DELETE  FROM books WHERE author = %s"
+    value = [search_term]
+    run_sql(sql, value)
+    return search_term

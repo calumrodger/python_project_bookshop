@@ -59,8 +59,6 @@ def update_book(id):
     book_repository.update(book)
     return redirect ("/books/" + id)
 
-
-
 @books_blueprint.route("/books/new", methods=['POST'])
 def create_book():
     title = request.form["title"]
@@ -82,7 +80,6 @@ def new_book():
     publishers = publisher_repository.select_all()
     return render_template('books/new.html', all_publishers=publishers)  
 
-
 @books_blueprint.route("/books/byauthor", methods=['POST'])
 def search_for_author():
     search_term = request.form["author"]
@@ -92,15 +89,16 @@ def search_for_author():
     authors = book_repository.list_all_authors()
     return render_template("/books/byauthor.html", all_books=books, all_publishers=publishers, all_genres=genres, all_authors=authors)
 
-@books_blueprint.route("/books/cancelauthor", methods=['GET'])
-def cancel_author(book):
-    author = book.author
+@books_blueprint.route("/books/cancelauthor", methods=['POST'])
+def cancel_author():
+    search_term = request.form["author"]
+    author = book_repository.cancel_author(search_term)
+    return render_template("/books/cancelauthor.html", author=author)
 
 
 @books_blueprint.route("/books/bygenre", methods=['POST'])
 def search_for_genre():
     search_term = request.form["genre"]
-    pdb.set_trace()
     books = book_repository.select_by_genre(search_term)
     publishers = publisher_repository.select_all()
     genres = book_repository.list_all_genres()
