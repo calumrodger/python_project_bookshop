@@ -1,6 +1,4 @@
-* {
-  font-family: "Poppins", sans-serif;
-}
+
 
 #grid-container {
   display: grid;
@@ -18,6 +16,7 @@
 }
 body {
   background-color: #a8edea;
+  font-family: "Lora", serif;
 }
 
 h2 {
@@ -27,17 +26,18 @@ h2 {
 header {
   background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
   text-indent: 50px;
+  font-family: "Poppins", sans-serif;
 }
 
 footer {
   background-color: #fed6e3;
-  position: fixed;
+  position: static;
   bottom: 10px;
   left: 15px;
   right: 15px;
-  height: 30px;
+  height: 20px;
   text-align: center;
-  padding: 1px;
+  padding: 10px;
 }
 
 .search-by {
@@ -61,11 +61,22 @@ footer {
   grid-area: main;
 }
 
-.book-item {
-  grid-area: main;
-  display: row wrap;
-}
-
 .publishers {
   padding: 20px;
+}
+
+.book-item {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 33%;
+}
+
+
+
+.book-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100vw;
 }

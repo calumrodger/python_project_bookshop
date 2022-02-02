@@ -109,3 +109,19 @@ def list_all_authors():
                 if book.author not in authors:
                     authors.append(book.author)
     return authors
+
+# def cancel_author(search_term):
+#     books = []
+#     sql = "DELETE * FROM books WHERE author = %s"
+#     value = [search_term]
+#     results = run_sql(sql, value)
+#     if results is not None:
+#         for row in results:
+#             book = Book(row["title"], row["publisher_id"], row["author"], row["genre"], row["stock"], row["cost_price"], row["sale_price"], row["blurb"], row["image"], row["id"])
+#             books.append(book)
+#     return books
+
+# def cancel_author(search_term):
+#     sql = "DELETE * FROM books WHERE author = %s"
+#     value = [search_term]
+#     run_sql(sql, value)

@@ -27,11 +27,13 @@
   </form>
 </section>
 <!-- <div id="grid-container"> -->
-  <div id="main-content">
-{% for book in all_books %}  
+  <!-- <div id="main-content"> -->
+    <section class="book-container">
+    {% for book in all_books %}  
 
-<ul>
+
  <div id="book-item">
+  <ul>
       {% if book.image != None %}
       <a href="/books/{{book.id}}" method="GET"><img src= "{{book.image}}" width="300" height="300"></a><br>
         {% else %}
@@ -46,12 +48,11 @@
       <b>Stock level:</b> {{book.stock}}<br>
         {% endif %}
         <br>
- </div>
+
 </ul>
-</div>
-</div>
 
       
 {% endfor %} 
-
+</div>
+</section>
 {% endblock %}

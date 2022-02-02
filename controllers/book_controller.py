@@ -16,12 +16,11 @@ def list_books():
     authors = book_repository.list_all_authors()
     return render_template("/books/index.html", all_books = books, all_publishers = publishers, all_genres=genres, all_authors=authors)
 
-
-
 @books_blueprint.route("/books/<id>", methods=["GET"])
 def show_books(id):
     book = book_repository.select(id)
-    return render_template("books/show.html", book=book)
+    publishers = publisher_repository.select_all()
+    return render_template("books/show.html", book=book, all_publishers=publishers)
 
 @books_blueprint.route("/books/<id>/delete", methods=['GET'])
 def remove_book(id):
@@ -31,12 +30,12 @@ def remove_book(id):
 @books_blueprint.route("/books/<id>/sell", methods=['GET'])
 def sell_book(id):
     book_repository.sell_copy(id)
-    return redirect("/books")
+    return redirect("/books/")
 
 @books_blueprint.route("/books/<id>/buy", methods=['GET'])
 def buy_book(id):
     book_repository.buy_copy(id)
-    return redirect("/books")
+    return redirect("/books/")
 
 @books_blueprint.route("/books/<id>", methods=['GET'])
 def edit_book(id):
@@ -91,7 +90,12 @@ def search_for_author():
     publishers = publisher_repository.select_all()
     genres = book_repository.list_all_genres()
     authors = book_repository.list_all_authors()
-    return render_template("books/byauthor.html", all_books=books, all_publishers=publishers, all_genres=genres, all_authors=authors)
+    return render_template("/books/byauthor.html", all_books=books, all_publishers=publishers, all_genres=genres, all_authors=authors)
+
+@books_blueprint.route("/books/cancelauthor", methods=['GET'])
+def cancel_author(book):
+    author = book.author
+
 
 @books_blueprint.route("/books/bygenre", methods=['POST'])
 def search_for_genre():
