@@ -4,7 +4,7 @@
 
   <section class="search-by">
   <form action="books/byauthor" method="post">
-    <label for="author">Filter by author:</label>
+    <label for="author">Filter by poet:</label>
     <select id="author" name="author">
       {% for author in all_authors %}
         <option value="{{ author }}">
@@ -15,7 +15,7 @@
     <button type="submit", action="byauthor/", method="post">Go</button>
   </form>
   <form action="books/cancelauthor" method="post">
-    <label for="author">Cancel author:</label>
+    <label for="author">Cancel poet:</label>
     <select id="author" name="author">
       {% for author in all_authors %}
         <option value="{{ author }}">
@@ -44,7 +44,7 @@
       {% if book.image != None %}
       <a href="/books/{{book.id}}" method="GET"><img src= "{{book.image}}" width="300" height="300"></a><br>
         {% else %}
-      <a href="/books/{{book.id}}" method="GET"><img src= "no_image_available.jpg" width="300" height="300"></a><br>
+      <a href="/books/{{book.id}}" method="GET"><img src= "/no_image_available.jpg" width="300" height="300"></a><br>
       {% endif %}
       <section class="title">
       {{book.title}}<br>
