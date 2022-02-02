@@ -112,7 +112,7 @@ def list_all_authors():
 def cancel_author (search_term):
     sql = "DELETE  FROM books WHERE author = %s"
     value = [search_term]
-    run_sql(sql, value)
+    results = run_sql(sql, value)
     return search_term
 
 def cancel_message():
