@@ -1,7 +1,7 @@
 {% extends "base.html" %} 
 
 {% block content %}
-
+<section class="main-block-content">
 <div class="book">
     <div class="content">
       <img src= {{book.image}} alt="{{book.title}}" width="300" height="300"><br>
@@ -29,7 +29,9 @@
       <a href="/books/{{book.id}}/delete" method="POST">Remove book from inventory</a><br>
     </div>
 </div>
-
+</section>
+<br>
+<section class="publishers">
 <form action="/books/{{book.id}}" method="post">
   <div>
     <label for="title">Title:</label>
@@ -87,5 +89,5 @@
   <button type="submit">Update Book</button>
 
 </form>
-
+</section>
 {% endblock %}

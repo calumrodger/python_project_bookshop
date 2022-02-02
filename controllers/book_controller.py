@@ -70,6 +70,8 @@ def create_book():
     sale_price = request.form["sale_price"]
     blurb = request.form["blurb"]
     image = request.form["image"]
+    if image == None:
+        image = "https://i.imgur.com/k7LOImQ.jpg"
     publisher = publisher_repository.select(publisher_id)
     book = Book(title, publisher, author, genre, stock, cost_price, sale_price, blurb, image, id)
     book_repository.save(book)
@@ -93,7 +95,8 @@ def search_for_author():
 def cancel_author():
     search_term = request.form["author"]
     author = book_repository.cancel_author(search_term)
-    return render_template("/books/cancelauthor.html", author=author)
+    message = book_repository.cancel_message()
+    return render_template("/books/cancelauthor.html", author=author, message=message)
 
 
 @books_blueprint.route("/books/bygenre", methods=['POST'])

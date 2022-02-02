@@ -9,6 +9,7 @@
       <b>Location:</b> {{publisher.location}}<br>
       <b>Active?:</b> {{publisher.active}}<br>
       <b>Index:</b> {{publisher.id}}<br>
+      <br>
       <a href="/publishers/{{publisher.id}}" method="POST">Edit entry</a><br>
         {% if publisher.active == False %}
       <a href="/publishers/{{publisher.id}}/active" method="POST">Activate publisher</a><br>

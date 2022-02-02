@@ -1,4 +1,5 @@
 from db.run_sql import run_sql
+import random
 
 from models.book import Book
 from models.publisher import Publisher
@@ -113,3 +114,8 @@ def cancel_author (search_term):
     value = [search_term]
     run_sql(sql, value)
     return search_term
+
+def cancel_message():
+    list = ["What a scumbag!", "Thank goodness your customers will not be exposed to these pernicious thoughts.", "Normalise hating on this guy!", "How dare this person say these things!", "Our outrage is palpable."]
+    message = random.choice(list)
+    return message

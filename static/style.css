@@ -62,7 +62,25 @@ footer {
 }
 
 .publishers {
+  align-content: center;
   padding: 20px;
+  width: 400px;
+  height: 300px;
+  margin-left: 100px;
+  margin-bottom: 50px;
+  background-color: #fed6e3;
+  border: 1px solid white;
+}
+
+.main-block-content {
+  align-content: center;
+  padding: 20px;
+  width: 400px;
+  height: 600px;
+  margin-left: 100px;
+  margin-bottom: 50px;
+  background-color: #fed6e3;
+  border: 1px solid white;
 }
 
 .book-item {
