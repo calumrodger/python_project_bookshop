@@ -70,8 +70,6 @@ def create_book():
     sale_price = request.form["sale_price"]
     blurb = request.form["blurb"]
     image = request.form["image"]
-    if image == None:
-        image = "https://i.imgur.com/k7LOImQ.jpg"
     publisher = publisher_repository.select(publisher_id)
     book = Book(title, publisher, author, genre, stock, cost_price, sale_price, blurb, image, id)
     book_repository.save(book)
